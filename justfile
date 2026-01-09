@@ -17,15 +17,12 @@ fix:
   just fmt
   cargo fix --allow-dirty --allow-staged
   -cargo shear --fix
-  pnpm lint --fix
 
 update:
   cargo upgrade
   cargo update
-  pnpm deps
 
 test: 
-  pnpm test run
   cargo test --all-features --workspace
 
 ready:
@@ -39,16 +36,10 @@ ready:
 lint: 
   cargo shear
   cargo clippy --workspace --all-targets --all-features
-  pnpm lint
 
 build:
   cargo build
-  pnpm build
 
 bump TYPE:
-  pnpm bump -y
   cargo workspaces version --no-git-commit -y {{ TYPE }}
   just build
-
-bench:
-  cargo bench -p umc_benchmark
