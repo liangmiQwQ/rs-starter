@@ -8,10 +8,15 @@ _default:
 init:
   cargo install cargo-binstall
   cargo binstall cargo-insta cargo-shear cargo-workspaces cargo-edit dprint -y
+  just install-hook
   
 fmt: 
   cargo fmt --all -- --emit=files
   dprint fmt
+
+install-hook:
+  echo -e "#!/bin/sh\njust fmt" > .git/hooks/pre-commit
+  chmod +x .git/hooks/pre-commit
 
 fix:
   just fmt
