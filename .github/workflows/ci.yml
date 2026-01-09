@@ -21,14 +21,11 @@ jobs:
           tools: just,cargo-shear
           components: clippy rustfmt
 
-      - name: Clippy
-        run: cargo clippy --workspace
+      - name: Lint
+        run: just lint
 
       - name: Format
         run: just fmt
-
-      - name: Build
-        run: just build
 
       - name: Check Files
         run: git diff --exit-code --quiet
@@ -48,9 +45,6 @@ jobs:
         uses: oxc-project/setup-rust@v1.0.9
         with:
           tools: just
-
-      - name: Build
-        run: just build
 
       - name: Test
         run: just test
