@@ -1,0 +1,5 @@
+---
+source: crates/example/src/lib.rs
+expression: result
+---
+4
