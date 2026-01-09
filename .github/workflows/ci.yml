@@ -1,0 +1,56 @@
+name: Commit Check
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Rust
+        uses: oxc-project/setup-rust@v1.0.9
+        with:
+          tools: just,cargo-shear
+          components: clippy rustfmt
+
+      - name: Clippy
+        run: cargo clippy --workspace
+
+      - name: Format
+        run: just fmt
+
+      - name: Build
+        run: just build
+
+      - name: Check Files
+        run: git diff --exit-code --quiet
+
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Rust
+        uses: oxc-project/setup-rust@v1.0.9
+        with:
+          tools: just
+
+      - name: Build
+        run: just build
+
+      - name: Test
+        run: just test
