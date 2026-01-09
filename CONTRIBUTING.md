@@ -27,6 +27,12 @@ And you can easily run the command to do formatting or code linting, you can lis
 just
 ```
 
+To make sure your code can be passed by CI, you can also preview the result by running:
+
+```bash
+just ready
+```
+
 ## Creating Pull Request
 
 We will review your PR and ensure CI passes (if available)
@@ -62,6 +68,3 @@ If reviewers request changes:
 You can push additional commits to your existing branch - there's no need to create a new pull request. We'll see your updates automatically.
 
 Thank you for contributing! 🎉
-
-```
-```
