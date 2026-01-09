@@ -18,7 +18,7 @@ jobs:
       - name: Setup Rust
         uses: oxc-project/setup-rust@v1.0.9
         with:
-          tools: just,cargo-shear
+          tools: just,cargo-shear,dprint
           components: clippy rustfmt
 
       - name: Lint
