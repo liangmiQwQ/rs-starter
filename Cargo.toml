@@ -12,7 +12,7 @@ repository = "https://github.com/liangmiQwQ/umc"
 description = ""
 
 edition = "2024"
-rust-version = "1.92.0"
+rust-version = "1.91.1"
 
 [profile.release]
 lto = true
