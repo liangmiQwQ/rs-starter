@@ -45,6 +45,5 @@ lint:
 build:
   cargo build
 
-bump TYPE:
-  cargo workspaces version --no-git-commit -y {{ TYPE }}
-  just build
+bump:
+  cargo workspaces version -y
