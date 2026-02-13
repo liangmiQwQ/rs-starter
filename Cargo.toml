@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/*"]
+members = ["benchmark", "crates/*"]
 
 [workspace.package]
 version = "0.0.0-alpha.0"
@@ -25,4 +25,5 @@ pedantic = { level = "warn", priority = -1 }
 nursery = { level = "warn", priority = -1 }
 
 [workspace.dependencies]
+criterion = "0.8.2"
 insta = "1.45.1"
