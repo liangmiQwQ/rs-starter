@@ -26,4 +26,4 @@ nursery = { level = "warn", priority = -1 }
 
 [workspace.dependencies]
 criterion = "0.8.2"
-insta = "1.45.1"
+insta = "1.46.3"
