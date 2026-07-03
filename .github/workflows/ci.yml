@@ -15,6 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      - name: Update Stable Rust
+        run: rustup update stable
+
       - name: Setup Rust
         uses: oxc-project/setup-rust@v1.0.9
         with:
@@ -40,6 +43,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+
+      - name: Update Stable Rust
+        run: rustup update stable
 
       - name: Setup Rust
         uses: oxc-project/setup-rust@v1.0.9
